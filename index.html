@@ -10,12 +10,12 @@
 
     <div ng-app="app" class="app">
         <div ng-controller="ContactController as vm">
-            <ul>
+            <ul ng-repeat = "contact in vm.contacts">
                 <li>
                     <h4>Name: {{ contact.name }}</h4>
                     <h6>Phone: {{ contact.phone }}</h6>
 
-                    <a href="">Delete</a>
+                    <a href="" ng-click="vm.removeContact($index)">Delete</a>
                 </li>
             </ul>
 
@@ -23,12 +23,12 @@
 
             <form>
                 <div>
-                    <label>Name</label>
+                    <label ng-model="vm.name">Name</label>
                     <input />
                 </div>
 
                 <div>
-                    <label>Phone</label>
+                    <label ng-model="vm.phone">Phone</label>
                     <input />
                 </div>
                 <button type="submit">Add Contact</button>
