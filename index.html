@@ -10,8 +10,8 @@
 
     <div ng-app="app" class="app">
         <div ng-controller="ContactController as vm">
-            <ul ng-repeat = "contact in vm.contacts">
-                <li>
+            <ul>
+                <li ng-repeat="contact in vm.contacts">
                     <h4>Name: {{ contact.name }}</h4>
                     <h6>Phone: {{ contact.phone }}</h6>
 
@@ -21,15 +21,15 @@
 
             <h2>Add contact</h2>
 
-            <form>
+            <form ng-submit="vm.addContact()">
                 <div>
-                    <label ng-model="vm.name">Name</label>
-                    <input />
+                    <label>Name</label>
+                    <input ng-model="vm.name" />
                 </div>
 
                 <div>
-                    <label ng-model="vm.phone">Phone</label>
-                    <input />
+                    <label>Phone</label>
+                    <input ng-model="vm.phoneNumber" />
                 </div>
                 <button type="submit">Add Contact</button>
             </form>
